@@ -1,0 +1,10 @@
+const express=require("express");
+const upload=require("../middleware/upload");
+const router=express.Router();
+const hotelController=require("../controllers/hotelController");
+router.get("/", hotelController.getHotels);
+router.post("/", upload.single("image"), hotelController.createHotel);
+router.get("/:id", hotelController.getHotelById);
+router.put("/:id", upload.single("image"), hotelController.updateHotel);
+router.delete("/:id", hotelController.deleteHotel);
+module.exports=router;
