@@ -45,6 +45,10 @@ function HotelList() {
       setRefresh((r)=>r+1);
     }
   };
+  const handlePageChange=(n)=> {
+  setPage(n);
+  window.scrollTo({ top: 0,behavior:"smooth" });
+};
 
   return (
     <div className="container">
@@ -57,8 +61,12 @@ function HotelList() {
         <FilterBox onApply={handleApply} />
 
         <div className="content">
-          {loading && <p>Loading...</p>}
+          {loading && <div className="spinner"></div>}
+          
           {error && <p>Error: {error}</p>}
+          {!loading && total >0&&(
+  <p className="count">{total} hotels found</p>
+)}
 
 
           {!loading && items.length === 0 && <p>No hotels found</p>}
@@ -77,8 +85,7 @@ function HotelList() {
           <Pagination
             page={page}
             totalPages={totalPages}
-            onPageChange={setPage}
-
+            onPageChange={handlePageChange}
             
           />
         </div>

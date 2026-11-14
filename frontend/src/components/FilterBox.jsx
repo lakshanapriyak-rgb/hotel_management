@@ -7,6 +7,13 @@ function FilterBox({ onApply }) {
   const handleApply=()=>{
     onApply({search,minPrice,maxPrice });
   };
+
+  const handleClear=()=>{
+  setSearch("");
+  setMinPrice("");
+  setMaxPrice("");
+  onApply({ search: "",minPrice: "",maxPrice: "" });
+};
   return (
     <div className="filter-box">
       <h3>Filter</h3>
@@ -32,6 +39,9 @@ function FilterBox({ onApply }) {
         onChange={(e)=>setMaxPrice(e.target.value)}
       />
       <button onClick={handleApply}>Apply</button>
+      <button type="button" className="clear-btn" onClick={handleClear}>
+  Clear
+</button>
     </div>
   );
 }

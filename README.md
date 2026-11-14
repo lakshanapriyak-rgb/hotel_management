@@ -9,6 +9,10 @@ A hotel list web app where users can add, view, edit, search and filter hotels b
 - Database: PostgreSQL (native SQL, no ORM)
 - Image upload: Multer
 
+## Demo Video
+
+[Watch the demo video](https://drive.google.com/drive/folders/1Yr6mRxqYI_dqWtxsNEy6meUtMOxwlVvN)
+
 ## Features
 
 - Hotel list with image, title, price and description
